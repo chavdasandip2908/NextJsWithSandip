@@ -1,0 +1,14 @@
+.main-about{
+    display: flex;
+    background-color: #6a5acdb8;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    list-style: none ;
+    gap: 1rem;
+}
+.main-about>li{
+    font-weight: bold;
+}
