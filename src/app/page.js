@@ -1,10 +1,10 @@
 
-'use client';
 
 import styles from './page.module.css'
 
 
 
+// 'use client';
 // export default function Home() {
 
 //   function Demo() {
@@ -20,6 +20,7 @@ import styles from './page.module.css'
 // }
 
 
+// 'use client';
 // const User = (props) => {
 //   return (
 //     <div>
@@ -28,6 +29,7 @@ import styles from './page.module.css'
 //   )
 // }
 
+// 'use client';
 // import { useState } from 'react';
 // export default function Home() {
 //   const [name, setName] = useState('abcd');
@@ -46,6 +48,7 @@ import styles from './page.module.css'
 //   )
 // }
 
+// 'use client';
 // export default function Home() {
 //   const ChildComponentA = () => {
 //     return (
@@ -71,6 +74,7 @@ import styles from './page.module.css'
 //   )
 // }
 
+// 'use client';
 // import Link from 'next/link';
 // import { useRouter } from 'next/navigation'
 // export default function Home() {
@@ -98,33 +102,60 @@ import styles from './page.module.css'
 // }
 
 
-// fetch data api 
+// fetch data from api 
+// 1. Client components
+// 'use client';
+
+// import { useEffect, useState } from 'react';
+// export default function page() {
+//   const [products, setProducts] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         let data = await fetch('https://jsonplaceholder.typicode.com/todos');
+//         data = await data.json();
+//         setProducts(data);
+//       } catch (error) {
+//         console.error("Error fetching data: ", error);
+//       }
+//     };
+
+//     fetchData();
+//   }, []);
 
 
-import { useEffect, useState } from 'react';
-export default function page() {
-  const [products, setProducts] = useState([]);
+//   return (
+//     <div>
+//       <h1>fetch data  Client component</h1>
+//       <h2>Product List</h2>
+//       {
+//         products.map((product, index) => (
+//           <div key={index}>
+//             <h4 >{product.id} : {product.title}</h4>
+//             <p>{'=> '}{product.completed ? "Complet" : "Panding"}</p>
+//             <br />
+//             <br />
+//           </div>
+//         ))
+//       }
+//     </div>
+//   )
+// }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let data = await fetch('https://jsonplaceholder.typicode.com/todos');
-        data = await data.json();
-        setProducts(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
+// 1. Server components
+async function fetchTodo() {
+  let data = await fetch('https://jsonplaceholder.typicode.com/todos/');
+  data = await data.json();
+  return data;
+}
 
-    fetchData();
-  }, []);
-
+export default async function Page() {
+  let products = await fetchTodo();
 
   return (
     <div>
-      <h1>fetch data api</h1>
-      <h2>Product List</h2>
+      <h1>fetch data Server Component</h1>
       {
         products.map((product, index) => (
           <div key={index}>
