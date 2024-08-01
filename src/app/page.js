@@ -1,7 +1,4 @@
-
-
-import styles from './page.module.css'
-
+"use client"
 
 
 // 'use client';
@@ -144,28 +141,45 @@ import styles from './page.module.css'
 // }
 
 // 1. Server components
-async function fetchTodo() {
-  let data = await fetch('https://jsonplaceholder.typicode.com/todos/');
-  data = await data.json();
-  return data;
-}
+// async function fetchTodo() {
+//   let data = await fetch('https://jsonplaceholder.typicode.com/todos/');
+//   data = await data.json();
+//   return data;
+// }
 
-export default async function Page() {
-  let products = await fetchTodo();
+// export default async function Page() {
+//   let products = await fetchTodo();
 
+//   return (
+//     <div>
+//       <h1>fetch data Server Component</h1>
+//       {
+//         products.map((product, index) => (
+//           <div key={index}>
+//             <h4 >{product.id} : {product.title}</h4>
+//             <p>{'=> '}{product.completed ? "Complet" : "Panding"}</p>
+//             <br />
+//             <br />
+//           </div>
+//         ))
+//       }
+//     </div>
+//   )
+// }
+
+
+
+// How to Write Inline CSS 
+import { useState } from 'react'
+
+export default function Page() {
+
+  const [btnBgColor, setBtnBgColor] = useState({ backgroundColor: "blue" });
   return (
     <div>
-      <h1>fetch data Server Component</h1>
-      {
-        products.map((product, index) => (
-          <div key={index}>
-            <h4 >{product.id} : {product.title}</h4>
-            <p>{'=> '}{product.completed ? "Complet" : "Panding"}</p>
-            <br />
-            <br />
-          </div>
-        ))
-      }
+      <h1 style={{ backgroundColor: "blueviolet" }}>How to Write CSS</h1>
+      <h2 style={btnBgColor}>Welcome</h2>
+      <button onClick={() => setBtnBgColor({ backgroundColor: "red" })}>Change Color</button>
     </div>
   )
 }
