@@ -170,16 +170,30 @@
 
 
 // How to Write Inline CSS 
-import { useState } from 'react'
+// import { useState } from 'react'
+
+// export default function Page() {
+
+//   const [btnBgColor, setBtnBgColor] = useState({ backgroundColor: "blue" });
+//   return (
+//     <div>
+//       <h1 style={{ backgroundColor: "blueviolet" }}>How to Write CSS</h1>
+//       <h2 style={btnBgColor}>Welcome</h2>
+//       <button onClick={() => setBtnBgColor({ backgroundColor: "red" })}>Change Color</button>
+//     </div>
+//   )
+// }
+
+
+// CSS Modules
+import CssModule from './page.module.css'
 
 export default function Page() {
 
-  const [btnBgColor, setBtnBgColor] = useState({ backgroundColor: "blue" });
   return (
     <div>
-      <h1 style={{ backgroundColor: "blueviolet" }}>How to Write CSS</h1>
-      <h2 style={btnBgColor}>Welcome</h2>
-      <button onClick={() => setBtnBgColor({ backgroundColor: "red" })}>Change Color</button>
+      <h1 >How to Write CSS</h1>
+      <h2 className={CssModule.main}>Welcome</h2>
     </div>
   )
 }
